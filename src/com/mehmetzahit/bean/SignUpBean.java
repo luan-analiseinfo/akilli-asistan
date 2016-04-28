@@ -1,8 +1,13 @@
-package com.mehmetzahit.map;
+package com.mehmetzahit.bean;
+
+
 
 import java.io.Serializable;
 
-public class SignUp implements Serializable {
+import javax.faces.bean.ManagedBean;
+
+@ManagedBean
+public class SignUpBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private int id;

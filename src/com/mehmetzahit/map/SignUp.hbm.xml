@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.mehmetzahit.map.SignUp" table="members">
+		<id name="id" column="memberID">
+			<generator class="native"></generator>
+		</id>
+		
+		<property name="name" column="Name"></property>
+		<property name="surname" column="Surname"></property>
+		<property name="email" column="Email"></property>
+		<property name="password" column="Password"></property>
+
+	</class>
+
+</hibernate-mapping>
