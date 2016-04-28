@@ -1,8 +1,8 @@
 package com.mehmetzahit.map;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+
+import com.mehmetzahit.util.HibernateUtil;
 
 public class App {
 	public static void main(String[] args) {
@@ -13,11 +13,8 @@ public class App {
 		signup.setEmail("asdsad");
 		signup.setPassword("ss");
 		
-		
-		
-		
-		SessionFactory sessionfactory=new Configuration().configure().buildSessionFactory();
-		Session session=sessionfactory.openSession();
+	
+		Session session=HibernateUtil.getSessionfactory().openSession();
 		session.beginTransaction();
 		session.save(signup);
 		session.getTransaction().commit();

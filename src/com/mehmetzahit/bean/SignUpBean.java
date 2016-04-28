@@ -6,6 +6,11 @@ import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 
+import org.hibernate.Session;
+
+import com.mehmetzahit.map.SignUp;
+import com.mehmetzahit.util.HibernateUtil;
+
 @ManagedBean
 public class SignUpBean implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -45,6 +50,29 @@ public class SignUpBean implements Serializable {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String SaveDate(SignUp signup){
+		signup.setName(name);
+		signup.setSurname(surname);
+		signup.setEmail(email);
+		signup.setPassword(password);
+		
+		
+		
+		
+		try {
+			Session session=HibernateUtil.getSessionfactory().openSession();
+			session.beginTransaction();
+			session.save(signup);
+			session.getTransaction().commit();
+			return "index";
+			
+		} catch (Exception e) {
+			return "error";
+		}
+		
+		
 	}
 	
 	

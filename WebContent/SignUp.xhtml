@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<h:body>
+	<h:form>
+		<p:fieldset legend="Giriş Paneli" style="text-align:left; width:400px;">
+			
+			<p:panelGrid columns="2">
+
+				<h:outputLabel value="Adı:" />
+				<p:inputText value="#{signUpBean.name}" />
+
+				<h:outputLabel value="Soyadı:" />
+				<p:inputText value="#{signUpBean.surname}" />
+
+				<h:outputLabel value="E-Posta:" />
+				<p:inputText value="#{signUpBean.email}" />
+
+				<h:outputLabel value="Şifre:" />
+				<p:inputText value="#{signUpBean.password}" />
+			</p:panelGrid>
+
+			<p:commandButton action="#{signUpBean.SaveDate}" value="Kayıt Ol" />
+		</p:fieldset>
+
+	</h:form>
+
+</h:body>
+</html>
