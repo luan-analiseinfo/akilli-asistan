@@ -53,6 +53,7 @@ public class SignUpBean implements Serializable {
 	}
 	
 	public String SaveDate(SignUp signup){
+		
 		signup.setName(name);
 		signup.setSurname(surname);
 		signup.setEmail(email);
@@ -66,6 +67,9 @@ public class SignUpBean implements Serializable {
 			session.beginTransaction();
 			session.save(signup);
 			session.getTransaction().commit();
+			session.clear();
+			session.close();
+			
 			return "index";
 			
 		} catch (Exception e) {
