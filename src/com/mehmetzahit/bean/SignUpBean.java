@@ -52,7 +52,8 @@ public class SignUpBean implements Serializable {
 		this.password = password;
 	}
 	
-	public String SaveDate(SignUp signup){
+	public String SaveDate(){
+		SignUp signup=new SignUp();
 		
 		signup.setName(name);
 		signup.setSurname(surname);
