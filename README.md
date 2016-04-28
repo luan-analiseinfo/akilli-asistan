@@ -1,2 +1,2 @@
 # AkilliAsistan
-JSF+Hibernate ile AkÄ±llÄ± KiÅŸisel Asistan
+JSF+Hibernate+PrimeFaces ile Akıllı Kişisel Asistan
