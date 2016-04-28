@@ -1,2 +1,2 @@
 # AkilliAsistan
-JSF+Hibernate+PrimeFaces ile Akýllý Kiþisel Asistan
+JSF+Hibernate+PrimeFaces ile Akilli Kisisel Asistan
