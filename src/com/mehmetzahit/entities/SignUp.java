@@ -1,4 +1,4 @@
-package com.mehmetzahit.map;
+package com.mehmetzahit.entities;
 
 import java.io.Serializable;
 

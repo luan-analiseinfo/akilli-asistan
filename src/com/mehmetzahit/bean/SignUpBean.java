@@ -8,7 +8,7 @@ import javax.faces.bean.ManagedBean;
 
 import org.hibernate.Session;
 
-import com.mehmetzahit.map.SignUp;
+import com.mehmetzahit.entities.SignUp;
 import com.mehmetzahit.util.HibernateUtil;
 
 @ManagedBean
