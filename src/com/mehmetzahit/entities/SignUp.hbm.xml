@@ -4,7 +4,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.mehmetzahit.map.SignUp" table="members">
+	<class name="com.mehmetzahit.entities.SignUp" table="members">
 		<id name="id" column="memberID">
 			<generator class="native"></generator>
 		</id>

@@ -1187,8 +1187,6 @@ public class MembersBean {
 	
 	public void bilgi(){
 		
-		 String isim;
-		
 		SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionfactory.openSession();
 		session.beginTransaction();

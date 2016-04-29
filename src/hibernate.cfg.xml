@@ -16,7 +16,8 @@
 		<property name="hbm2ddl.auto">update</property>
 		
 		
-     <mapping resource="com/mehmetzahit/map/SignUp.hbm.xml"/> 
+     <mapping resource="com/mehmetzahit/entities/SignUp.hbm.xml"/> 
+     	<mapping class="com.mehmetzahit.entities.Members"/>
    
     </session-factory>
 </hibernate-configuration>
