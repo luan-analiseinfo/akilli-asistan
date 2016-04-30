@@ -8,8 +8,15 @@
 </h:head>
 <h:body>
 	<h:form>
-		<p>Welcome #{membersBean.email} #{membersBean.id}</p>
+		<p>Welcome #{membersBean.email} #{membersBean.memberID}</p>
 		<h:commandLink action="#{membersBean.logout()}" value="Logout"></h:commandLink>
+		
+	<h:dataTable value="#{membersBean.asd}" var="as">
+	<h:column>
+		<h:outputLabel value="#{as}" />
+	</h:column>
+	
+	</h:dataTable>
 	</h:form>
 </h:body>
 </html>

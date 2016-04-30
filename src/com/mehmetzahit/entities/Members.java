@@ -1,22 +1,30 @@
 package com.mehmetzahit.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 
-@Entity
+
 public class Members {
 	
-	@Id
+
 	private int memberID;
 	private String name;
 	private String surname;
 	private String email;
 	private String password;
+	private Topics topic;
 	
 	//-----------------------------------------------
+	public Topics getTopic() {
+		return topic;
+	}
+	public void setTopic(Topics topic) {
+		this.topic = topic;
+	}
+	
+	//---------------------------
 	public int getMemberID() {
 		return memberID;
 	}
+	
 	public void setMemberID(int memberID) {
 		this.memberID = memberID;
 	}
