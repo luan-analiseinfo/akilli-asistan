@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>Facelet Title</title>
 </h:head>
@@ -10,13 +11,35 @@
 	<h:form>
 		<p>Welcome #{membersBean.email} #{membersBean.memberID}</p>
 		<h:commandLink action="#{membersBean.logout()}" value="Logout"></h:commandLink>
-		
-	<h:dataTable value="#{membersBean.asd}" var="as">
-	<h:column>
-		<h:outputLabel value="#{as}" />
-	</h:column>
+		<h:outputLink value=""></h:outputLink>
+		<h:dataTable value="#{membersBean.asd}" var="as">
+			<h:column>
+				<h:outputLabel value="#{as}" />
+			</h:column>
+
+		</h:dataTable>
 	
-	</h:dataTable>
+
+	<h:panelGrid columns="1" cellpadding="5">
+
+		<p:commandButton value="Konu Oluştur" type="button" onclick="PF('dlg3').show();" />
+	</h:panelGrid>
+
+	<p:dialog header="Kategori Oluştur" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="120">
+		<h:panelGrid columns="2">
+		
+			<h:outputLabel value="Konu Adı:" />
+			<h:inputText value="" />
+			
+			<h:outputLabel value="Konu Türü:" />
+			<h:inputText value="" />
+		
+		</h:panelGrid>
+		<p:commandButton  value="Oluştur" />
+		
+	</p:dialog>
+	
+	
 	</h:form>
 </h:body>
 </html>
