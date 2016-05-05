@@ -1,47 +1,28 @@
 package com.mehmetzahit.dao;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.hibernate.SessionFactory;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.cfg.Configuration;
+import java.util.HashMap;
 
-import com.mehmetzahit.entities.Members;
-import com.mehmetzahit.entities.Topics;
-
-
+import java.util.Set;
 
 public class App {
 	
-	
-	private static List<String> myList = new ArrayList()<String>();
-	
+
 	
 	
-	public List<String> getMyList() {
-		return myList;
-	}
-
-
-	public void setMyList(List<String> myList) {
-		this.myList = myList;
-	}
-
-
-	public static void main(String[] args) {
-
-		
-		myList.add("Hello");
-		myList.add("World");
-		
-	myList.ge
-		
-	    
-	}  
-
-
-	}
+	
+	
+public static void main(String[] args) {
+	 HashMap<Integer, String> ogrno=new HashMap<Integer,String>();
+	
+	ogrno.put(2, "Rýdvan");
+	ogrno.put(3, "Aykut");
+	ogrno.put(1, "Ethem");
+	ogrno.put(4, "Ahmet");
+	
+	System.out.println(ogrno.values());
+	
+	
 
 }
+
+	}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.mehmetzahit.entities.CreateTopic" table="topics">
+		<id name="topicID" column="topicID">
+			<generator class="native"></generator>
+		</id>
+		
+		<property name="topicName" column="topicName"></property>
+		<property name="memberID" column="memberID"></property>
+		<property name="topicType" column="topicType"></property>
+		
+		
+
+	</class>
+
+</hibernate-mapping>
+
