@@ -16,21 +16,13 @@
 		<h:commandLink action="#{membersBean.logout()}" value="Logout"></h:commandLink>
 		
 		
-		<h:dataTable value="#{membersBean.asd}"  >
-			<h:column>
-			
-			<h:outputText value="asda" />
-			
-			
-			
-			
-				<!--<h:commandLink action="asd" value="#{as.key}">
-				
-				
-				 <h:outputLabel value="#{membersBean.topicID}" />
-					<f:setPropertyActionListener value="#{membersBean.memberID}" target="" />
-					<f:setPropertyActionListener value="#{membersBean.topicID}" target="" />
-				</h:commandLink> -->
+		<h:dataTable value="#{membersBean.topics}" var="result"  >
+			<h:column>	
+				<h:commandLink action="TopicContent" value="#{result.topicName}">			
+					<f:setPropertyActionListener value="#{result.topicName}" target="#{topicContentBean.topicName}" />
+					<f:setPropertyActionListener value="#{result.topicID}" target="#{topicContentBean.topicID}" />
+					<f:setPropertyActionListener value="#{membersBean.memberID}" target="#{topicContentBean.memberID}" />
+				</h:commandLink> 
 			
 			</h:column>
 

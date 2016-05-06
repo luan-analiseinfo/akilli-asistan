@@ -19,6 +19,6 @@
 		<mapping resource="com/mehmetzahit/entities/Topics.hbm.xml" />
 		<mapping resource="com/mehmetzahit/entities/Members.hbm.xml" />
 		<mapping resource="com/mehmetzahit/entities/CreateTopic.hbm.xml" />
-		
+		<mapping resource="com/mehmetzahit/entities/TopicContent.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<h:body>
+
+
+	<h:outputLabel value="#{topicContentBean.memberID}" />
+	<h:outputLabel value="#{topicContentBean.topicID}" />
+	<h:outputLabel value="#{topicContentBean.topicName}" />
+
+	<h:form>	
+		<p:growl id="growl" showDetail="true" sticky="true" />  
+		
+		<h:inputHidden value="#{topicContentBean.topicID}" />
+		<h:inputHidden value="#{topicContentBean.memberID}" />
+		<h:panelGrid columns="1" cellpadding="5">
+
+			<p:commandButton value="İçerik Ekle" type="button" onclick="PF('dlg3').show();"></p:commandButton>
+				
+
+
+		</h:panelGrid>
+
+
+		<p:dialog header="Kategori Oluştur" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="250" width="500">			
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Başlık Adı:" />
+				<p:inputText value="#{topicContentBean.contentTitle}" />
+
+				<h:outputLabel value="İçerik:" />
+				<p:inputTextarea value="#{topicContentBean.content}" />
+
+				<h:outputLabel value="Önem Sırası" />
+				<p:rating value="#{topicContentBean.rating}" cancel="false" />
+
+				<h:outputLabel value="Anahtar Kelimeler:" />
+				<p:inputText value="#{topicContentBean.keywords}" />
+
+			</h:panelGrid>
+
+			<p:commandButton value="Kaydet" action="#{topicContentBean.calis()}" update="growl" />
+
+
+
+		</p:dialog>
+
+
+	</h:form>
+</h:body>
+</html>

@@ -25,6 +25,28 @@ import com.mehmetzahit.util.HibernateUtil;
 @ManagedBean
 @SessionScoped
 public class MembersBean {
+	
+	private List<Members> memberList;
+	private List<Topics> topics=new ArrayList<Topics>();
+	
+	
+	
+
+	public List<Topics> getTopics() {
+		return topics;
+	}
+
+	public void setTopics(List<Topics> topics) {
+		this.topics = topics;
+	}
+
+	public List<Members> getMemberList() {
+		return memberList;
+	}
+
+	public void setMemberList(List<Members> memberList) {
+		this.memberList = memberList;
+	}
 
 	private String email;
 	private String password;
@@ -113,9 +135,10 @@ public class MembersBean {
 
 		Query query = session.createQuery("from Members WHERE email=:parametre");
 		query.setParameter("parametre", getEmail());
-		List<Members> memberList = query.list();
+		 memberList = query.list();
 
 		for (Members member : memberList) {
+		
 
 			setMemberID(member.getMemberID());
 
@@ -133,10 +156,15 @@ public class MembersBean {
 		query.setParameter("parametre", getMemberID());
 		List<Topics> list = query.list();
 
-		for (Topics topics : list) {
+		for (Topics topik : list) {
+			
+
+			
+			topics.add(new Topics(topik.getTopicID(),topik.getTopicName()));
+		
 			
 			ogrno.put(53,"rize");
-			//ogrno.put(topics.getTopicID(),topics.getTopicName());
+			//ogrno.put(topik.getTopicID(),topics.getTopicName());
 		}
 
 		System.out.println(ogrno.keySet());
