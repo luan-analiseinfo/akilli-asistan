@@ -59,6 +59,22 @@ public class TopicContent implements Serializable {
 		this.topicID = topicID;
 	}
 	
+	public TopicContent(){
+		
+	}
+	
+	public TopicContent(int contentID, String contentTitle, String content, String keywords, int rating, int memberID,
+			int topicID) {
+	
+		this.contentID = contentID;
+		this.contentTitle = contentTitle;
+		this.content = content;
+		this.keywords = keywords;
+		this.rating = rating;
+		this.memberID = memberID;
+		this.topicID = topicID;
+	}
+	
 	
 
 	
