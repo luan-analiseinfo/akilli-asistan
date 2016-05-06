@@ -36,6 +36,27 @@ public class TopicContentBean implements Serializable {
 	// ------------------------------
 
 	private List<TopicContent> contentList = new ArrayList<TopicContent>();
+	
+	
+	
+	private List<TopicContent> topiccontent = new ArrayList<TopicContent>();
+
+	public List<TopicContent> getTopiccontent() {
+		return topiccontent;
+	}
+
+	public void setTopiccontent(List<TopicContent> topiccontent) {
+		this.topiccontent = topiccontent;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	public int getTopicID() {
 		return topicID;
@@ -138,35 +159,29 @@ public class TopicContentBean implements Serializable {
 
 	}
 
-	
+	@PostConstruct
 	public void content() {
 		Session session = HibernateUtil.getSessionfactory().openSession();
 		Query query = session.createQuery("FROM TopicContent");
-		List<TopicContent> contentList = query.list();
+		topiccontent = query.list();
 		
-		try {
-for(TopicContent topic:contentList){
-				System.out.println("bumu "+topic.getContentTitle());
-				contentList.add(new TopicContent(
-						
-						topic.getContentID(),
-						topic.getContentTitle(),
-						topic.getContent(),
-						topic.getKeywords(),
-						topic.getRating(),
-						topic.getMemberID(),
-						topic.getTopicID()				
-
-						));
+		for(TopicContent topic:topiccontent){
+			System.out.println("bah bahim "+topic.getContentTitle());
+			contentList.add(new TopicContent(
 				
-				
-			}
-
+					topic.getContentID(),
+					topic.getContentTitle(),
+					topic.getContent(),
+					topic.getKeywords(),
+					topic.getRating(),
+					topic.getMemberID(),
+					topic.getTopicID()	
+					
+					
+				));
 			
-			
-		} catch (Exception e) {
-			System.out.println("yakala ");
 		}
+	
 	
 	}
 

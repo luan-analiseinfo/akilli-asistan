@@ -26,6 +26,7 @@ public class CreateTopicBean implements Serializable{
 	private String parametre;
 	
 	
+	
 	public String getParametre() {
 		return parametre;
 	}

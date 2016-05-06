@@ -18,7 +18,7 @@
 		
 		<h:dataTable value="#{membersBean.topics}" var="result"  >
 			<h:column>	
-				<h:commandLink actionListener="#{topicContentBean.content()}" value="#{result.topicName}">			
+				<h:commandLink action="TopicContent" value="#{result.topicName}">			
 					<f:setPropertyActionListener value="#{result.topicName}" target="#{topicContentBean.topicName}" />
 					<f:setPropertyActionListener value="#{result.topicID}" target="#{topicContentBean.topicID}" />
 					<f:setPropertyActionListener value="#{membersBean.memberID}" target="#{topicContentBean.memberID}" />
