@@ -159,14 +159,17 @@ public class TopicContentBean implements Serializable {
 
 	}
 
-	@PostConstruct
-	public void content() {
+	
+	public String content() {
 		Session session = HibernateUtil.getSessionfactory().openSession();
-		Query query = session.createQuery("FROM TopicContent");
+		Query query = session.createQuery("FROM TopicContent WHERE memberID=:parametre1 and topicID=:parametre2");
+		System.out.println("bak bahim"+ memberID +"bidaha bhabahim"+ getMemberID());
+		query.setParameter("parametre1",memberID);
+		query.setParameter("parametre2",topicID);
 		topiccontent = query.list();
 		
 		for(TopicContent topic:topiccontent){
-			System.out.println("bah bahim "+topic.getContentTitle());
+		
 			contentList.add(new TopicContent(
 				
 					topic.getContentID(),
@@ -182,6 +185,7 @@ public class TopicContentBean implements Serializable {
 			
 		}
 	
+		return "TopicContent";
 	
 	}
 

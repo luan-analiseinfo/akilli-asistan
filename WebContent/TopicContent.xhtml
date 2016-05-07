@@ -19,75 +19,43 @@
 		<h:inputHidden value="#{topicContentBean.topicID}" />
 		<h:inputHidden value="#{topicContentBean.memberID}" />
 		
-		<h:panelGrid columns="1" cellpadding="5">
+		<h:panelGrid columns="2" cellpadding="5">
 			<p:commandButton value="İçerik Ekle" type="button" onclick="PF('dlg3').show();"></p:commandButton>
+			
 		</h:panelGrid>
+
+
+		<div class="ui-grid ui-grid-responsive">
+		    <div class="ui-grid-row">
+		    	<div class="ui-grid-col-2">sol taraf</div>
+		        <div class="ui-grid-col-8">
+		        
+		        <p:accordionPanel value="#{topicContentBean.contentList}" var="result">
+					<p:tab  title="#{result.contentTitle}">	
+							<p:commandButton value="Kod Ekle" type="button" onclick="PF('dlg2').show();"></p:commandButton>
+							<h:outputText value="#{result.content}" />				
+					</p:tab>
+				</p:accordionPanel>
+		        
+		        </div>
+		        <div class="ui-grid-col-2">sag taraf</div>
+		      
+		    </div>
+		</div>
+
 		
-		<p:accordionPanel>
-			 <p:dataTable value="#{topicContentBean.contentList}" var="result">
-				 <p:column>
-						
-				        <p:tab title="sd">
-				            <p:panelGrid columns="1" cellpadding="10">
-				              dsf
-				            </p:panelGrid>
-				        </p:tab>
-			          			
-				 </p:column>
-			 
-			 </p:dataTable>
-		 </p:accordionPanel>	
-	
-		
-		<h:column>
-				<h:outputText value="#{result.contentTitle}" />
-			</h:column>
-			
-		
-		
-			
-		
-		   
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		<p:dialog header="Kategori Oluştur" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="250" width="500">			
+		<p:dialog header="Kategori Oluştur" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="450" width="850">			
 			<h:panelGrid columns="2">
 				<h:outputLabel value="Başlık Adı:" />
-				<p:inputText value="#{topicContentBean.contentTitle}" />
+				<p:inputText value="#{topicContentBean.contentTitle}"></p:inputText>
+					
+		
 
 				<h:outputLabel value="İçerik:" />
-				<p:inputTextarea value="#{topicContentBean.content}" />
+				<p:editor id="editor" widgetVar="editorWidget" value="#{topicContentBean.content}" width="600" />
+				
 
 				<h:outputLabel value="Önem Sırası" />
 				<p:rating value="#{topicContentBean.rating}" cancel="false" />
@@ -98,9 +66,20 @@
 			</h:panelGrid>
 
 			<p:commandButton value="Kaydet" action="#{topicContentBean.calis()}" update="growl" />
+		</p:dialog>
+		
+		<p:dialog header="Kategori Oluştur" widgetVar="dlg2" showEffect="explode" hideEffect="bounce" height="450" width="850">	
+	
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Kod Adı:" />
+				<p:inputText value=""></p:inputText>
+				
+				<h:outputLabel value="Kod İçeriği:" />
+				<p:inputText value=""></p:inputText>
 
+			</h:panelGrid>
 
-
+			<p:commandButton value="Kaydet"  update="growl" />
 		</p:dialog>
 
 
