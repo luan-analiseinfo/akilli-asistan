@@ -25,25 +25,19 @@
 		</h:panelGrid>
 
 
-		<div class="ui-grid ui-grid-responsive">
-		    <div class="ui-grid-row">
-		    	<div class="ui-grid-col-2">sol taraf</div>
-		        <div class="ui-grid-col-8">
-		        
-		        <p:accordionPanel value="#{topicContentBean.contentList}" var="result">
-					<p:tab  title="#{result.contentTitle}">	
-							<p:commandButton value="Kod Ekle" type="button" onclick="PF('dlg2').show();"></p:commandButton>
-							<h:outputText value="#{result.content}" />				
-					</p:tab>
-				</p:accordionPanel>
-		        
-		        </div>
-		        <div class="ui-grid-col-2">sag taraf</div>
-		      
-		    </div>
-		</div>
-
 		
+		        <h:dataTable value="#{topicContentBean.contentList}" var="result">
+			        <h:column>
+			        	<h:outputText value="#{result.contentTitle}" />
+			        </h:column>
+			        
+			        <h:column>
+			        	<h:commandButton value="sadKod Ekle" actionListener="#{topicCodeContentBean.bilo()}" />						
+			        </h:column>
+			        
+		        </h:dataTable>
+		    <h:commandButton value="it" actionListener="#{topicCodeContentBean.yaz()}" />	
+	
 
 
 		<p:dialog header="Kategori Oluştur" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="450" width="850">			
@@ -72,14 +66,18 @@
 	
 			<h:panelGrid columns="2">
 				<h:outputLabel value="Kod Adı:" />
-				<p:inputText value=""></p:inputText>
+				<p:inputText />
 				
 				<h:outputLabel value="Kod İçeriği:" />
-				<p:inputText value=""></p:inputText>
+				<p:inputText />
 
 			</h:panelGrid>
 
-			<p:commandButton value="Kaydet"  update="growl" />
+			<p:commandButton value="Kaydet" action="#{topicCodeContentBean.bilo()}"  update="growl">
+				<f:setPropertyActionListener value="#{topicContentBean.memberID}" target="#{topicCodeContentBean.memberID}" />
+				<f:setPropertyActionListener value="#{topicContentBean.topicID}" target="#{topicCodeContentBean.topicID}" />	
+				<f:setPropertyActionListener value="#{topicContentBean.contentID}" target="#{topicCodeContentBean.contentID}" />				
+			</p:commandButton>
 		</p:dialog>
 
 
