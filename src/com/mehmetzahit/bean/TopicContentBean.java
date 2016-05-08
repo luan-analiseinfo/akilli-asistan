@@ -6,6 +6,9 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import org.hibernate.Query;
@@ -18,6 +21,7 @@ import com.mehmetzahit.util.HibernateUtil;
 import javax.faces.application.FacesMessage;
 
 @ManagedBean
+@SessionScoped
 public class TopicContentBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -32,7 +36,9 @@ public class TopicContentBean implements Serializable {
 	private String content;
 	private String keywords;
 	private int rating;
-
+	
+	//-------------------
+private String secili;
 	// ------------------------------
 
 	private List<TopicContent> contentList = new ArrayList<TopicContent>();
@@ -187,6 +193,14 @@ public class TopicContentBean implements Serializable {
 	
 		return "TopicContent";
 	
+	}
+
+	public String getSecili() {
+		return secili;
+	}
+
+	public void setSecili(String secili) {
+		this.secili = secili;
 	}
 
 }

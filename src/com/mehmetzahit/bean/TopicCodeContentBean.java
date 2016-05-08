@@ -4,16 +4,23 @@ import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
+import javax.faces.event.ActionEvent;
+
 
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class TopicCodeContentBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+private String icerik;
 	private int contentID;
 	private int memberID;
 	private int topicID;
+	
+	
 	
 	private int CodeID;
 	private String CodeText;
@@ -50,14 +57,19 @@ public class TopicCodeContentBean implements Serializable {
 		CodeText = codeText;
 	}
 	
-	public String yaz(){
-		System.out.println("yaz hacý" + getContentID());
-		return "TopicCodeContentBean";
-	}
-	
-	public void bilo() {
+
+
+	public void bilo(ActionEvent event) {
+		System.out.println("bak hele bak:"+ this.contentID);
 		System.out.println("içerik ýd:"+getContentID()+"Üye no:"+getMemberID()+"Konu:"+getTopicID());
 	
+	}
+
+	public String getIcerik() {
+		return icerik;
+	}
+	public void setIcerik(String icerik) {
+		this.icerik = icerik;
 	}
 
 }

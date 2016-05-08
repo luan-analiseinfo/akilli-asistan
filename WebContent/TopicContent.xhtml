@@ -18,11 +18,16 @@
 		
 		<h:inputHidden value="#{topicContentBean.topicID}" />
 		<h:inputHidden value="#{topicContentBean.memberID}" />
-		
+	
 		<h:panelGrid columns="2" cellpadding="5">
-			<p:commandButton value="İçerik Ekle" type="button" onclick="PF('dlg3').show();"></p:commandButton>
+			<p:commandButton value="İçerik Ekle" type="submit" onclick="PF('dlg3').show();"></p:commandButton>
 			
 		</h:panelGrid>
+
+
+
+
+
 
 
 		
@@ -31,13 +36,22 @@
 			        	<h:outputText value="#{result.contentTitle}" />
 			        </h:column>
 			        
+			         <h:column>
+			        	<h:outputText value="#{result.contentID}" />
+			        </h:column>
+			        
 			        <h:column>
-			        	<h:commandButton value="sadKod Ekle" actionListener="#{topicCodeContentBean.bilo()}" />						
+			        
+			        	<p:commandButton  value="Kod Ekle" type="button"> 
+
+			        		<f:setPropertyActionListener value="#{result.contentID}" target="#{topicCodeContentBean.contentID}" />
+			    
+			        	</p:commandButton>					
 			        </h:column>
 			        
 		        </h:dataTable>
-		    <h:commandButton value="it" actionListener="#{topicCodeContentBean.yaz()}" />	
-	
+		    
+	<h:outputText value="#{topicCodeContentBean.contentID}" />
 
 
 		<p:dialog header="Kategori Oluştur" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="450" width="850">			
@@ -66,17 +80,17 @@
 	
 			<h:panelGrid columns="2">
 				<h:outputLabel value="Kod Adı:" />
-				<p:inputText />
+				<h:inputText value="#{topicCodeContentBean.contentID}" />
 				
-				<h:outputLabel value="Kod İçeriği:" />
-				<p:inputText />
+				<h:outputLabel id="atla" value="Kod İçeriği:" />
+				<p:inputText  />
 
 			</h:panelGrid>
 
 			<p:commandButton value="Kaydet" action="#{topicCodeContentBean.bilo()}"  update="growl">
 				<f:setPropertyActionListener value="#{topicContentBean.memberID}" target="#{topicCodeContentBean.memberID}" />
 				<f:setPropertyActionListener value="#{topicContentBean.topicID}" target="#{topicCodeContentBean.topicID}" />	
-				<f:setPropertyActionListener value="#{topicContentBean.contentID}" target="#{topicCodeContentBean.contentID}" />				
+				<f:setPropertyActionListener value="#{topicCodeContentBean.contentID}" target="#{topicCodeContentBean.contentID}" />				
 			</p:commandButton>
 		</p:dialog>
 
