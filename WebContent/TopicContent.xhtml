@@ -37,7 +37,7 @@
 	<p:accordionPanel value="#{topicContentBean.contentList}" var="result">
         <p:tab title="#{result.contentTitle}">  
         	<h:panelGrid columns="1" cellpadding="0" cellspacing="0">
-        		<h:commandButton value="Kod Bloğu Ekle" action="#{topicCodeContentBean.addCode}">
+        		<h:commandButton value="Kod Bloğu Ekle" action="AddCode">
         			<f:setPropertyActionListener value="#{topicContentBean.topicID}" target="#{topicCodeContentBean.topicID}" />
         			<f:setPropertyActionListener value="#{topicContentBean.memberID}" target="#{topicCodeContentBean.memberID}" />
         			<f:setPropertyActionListener value="#{result.contentID}" target="#{topicCodeContentBean.contentID}" />
@@ -86,7 +86,7 @@
 
 			</h:panelGrid>
 
-			<p:commandButton value="Kaydet" action="#{topicCodeContentBean.bilo()}"  update="growl">
+			<p:commandButton value="Kaydet"   update="growl">
 				<f:setPropertyActionListener value="#{topicContentBean.memberID}" target="#{topicCodeContentBean.memberID}" />
 				<f:setPropertyActionListener value="#{topicContentBean.topicID}" target="#{topicCodeContentBean.topicID}" />	
 				<f:setPropertyActionListener value="#{topicCodeContentBean.contentID}" target="#{topicCodeContentBean.contentID}" />				

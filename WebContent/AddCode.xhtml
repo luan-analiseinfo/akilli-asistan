@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<h:body>
+	<h:form>
+		<h:outputText value="#{topicCodeContentBean.memberID}" />
+		<h:outputText value="#{topicCodeContentBean.contentID}" />
+		<h:outputText value="#{topicCodeContentBean.topicID}" />
+	
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Kod Adı:" />
+			<h:inputText value="#{topicCodeContentBean.codeTitle}" />
+	
+			<h:outputLabel value="Kod İçeriği:" />
+			<p:inputText value="#{topicCodeContentBean.codeContent}" />
+	
+		</h:panelGrid>
+		<h:commandButton action="#{topicCodeContentBean.addCode()}" value="Kaydet" />
+	</h:form>
+
+</h:body>
+</html>
