@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<ui:composition 
+
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<div class="row">
+	<div class="list-group">
+<h:form>	
+
+<h:link value="Çalışma Konuları"  styleClass="list-group-item active"  />
+
+	<h:dataTable value="#{membersBean.topics}" var="result"  >
+			<h:column>	
+				<h:commandLink action="#{topicContentBean.content()}" value="#{result.topicName}" styleClass="list-group-item" style="width:294px;">			
+					<f:setPropertyActionListener value="#{result.topicName}" target="#{topicContentBean.topicName}" />
+					<f:setPropertyActionListener value="#{result.topicID}" target="#{topicContentBean.topicID}" />
+					<f:setPropertyActionListener value="#{membersBean.memberID}" target="#{topicContentBean.memberID}" />
+				</h:commandLink> 
+			
+			</h:column>
+
+		</h:dataTable>
+	
+<!-- 		<h:link value="Öğrenci Kaydı" outcome="/ogrenci-kayit" styleClass="list-group-item"  /> -->
+	
+<!-- 		<h:commandLink action="#{unpaidStudentList.DBget2()}" value="Bu Ay Ödeme Yapanlar"  styleClass="list-group-item" /> -->
+<!-- 		<h:commandLink action="#{unpaidStudentList.DBget()}" value="Geçen Ay Ödeme Yapmayanlar"  styleClass="list-group-item" /> -->
+		
+<!-- 		<h:link value="Öğrenci Durumu" styleClass="list-group-item"  /> -->
+<!-- 		<h:link value="Daire" styleClass="list-group-item"  /> -->
+<!-- 		<h:link value="Roza Apart" styleClass="list-group-item"  /> -->
+<!-- 		<h:link value="Aylık Limit" styleClass="list-group-item"  /> -->
+<!-- 		<h:link value="Faturalar" styleClass="list-group-item"  /> -->
+		
+		
+</h:form>	
+				  
+	</div>
+</div>
+
+			  
+			   
+</ui:composition>

@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<ui:composition 
+
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<div class="navbar navbar-default">
+  <div class="container-fluid">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+ 
+      <a class="navbar-brand" href="#">Akıllı Kişisel Asistan</a>
+    
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <h:form class="navbar-form navbar-left" role="search">
+      <ul class="nav navbar-nav">
+       
+<!--         <li><a href="#">Tüm Öğrenciler</a></li> -->
+      
+		
+      </ul>
+      
+        <div class="form-group">
+        	<h:inputText value="#{studentList.source}" styleClass="form-control"  />
+        </div>
+        	<h:commandButton action="#{studentList.DBget()}" value="Ara" styleClass="btn btn-default" /> 
+      
+      </h:form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><br /><h:form><h:commandLink action="#{membersBean.logout()}" value="Çıkış" /></h:form></li>
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+    </div><!---container-->
+  </div><!-- /.container-fluid -->
+</div><!--nav-->	
+</ui:composition>

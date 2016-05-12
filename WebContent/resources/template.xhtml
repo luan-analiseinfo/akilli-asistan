@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>		
+		<title>${pageTitle}</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		
+		<h:outputStylesheet name="css/bootstrap.css" />
+		<h:outputStylesheet name="css/custom.css" />
+		
+</h:head> 
+<h:body> 
+		<div>
+			<ui:include src="header.xhtml" />
+		</div>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3">
+					<ui:include src="nav.xhtml" />
+				</div>
+				<div class="col-lg-9">					
+						<div class="well well-sm">					
+						
+						
+										<ui:insert name="content">
+											<h:outputText value="İçerik Alanı" />
+										</ui:insert>
+						
+		
+					    	
+						</div><!-- well -->									
+				</div><!-- col-lg-9 -->
+			</div><!-- row -->
+		</div><!-- Container -->
+		
+		
+</h:body> 
+</html>
