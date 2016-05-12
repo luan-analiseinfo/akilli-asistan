@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+<h:head>
+	<title>Facelet Title</title>
+</h:head>
+<h:body>
+	<h:form>
+	
+	
+		<p>Welcome #{membersBean.email} #{membersBean.memberID}</p>
+		<h:commandLink action="#{membersBean.logout()}" value="Logout"></h:commandLink>
+		
+		
+		<h:dataTable value="#{membersBean.topics}" var="result"  >
+			<h:column>	
+				<h:commandLink action="#{topicContentBean.content()}" value="#{result.topicName}">			
+					<f:setPropertyActionListener value="#{result.topicName}" target="#{topicContentBean.topicName}" />
+					<f:setPropertyActionListener value="#{result.topicID}" target="#{topicContentBean.topicID}" />
+					<f:setPropertyActionListener value="#{membersBean.memberID}" target="#{topicContentBean.memberID}" />
+				</h:commandLink> 
+			
+			</h:column>
+
+		</h:dataTable>
+	
+
+	<h:panelGrid columns="1" cellpadding="5">
+
+		<p:commandButton value="Konu Oluştur" type="button" onclick="PF('dlg3').show();"></p:commandButton>
+	
+		
+	</h:panelGrid>
+
+	<p:dialog header="Kategori Oluştur" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="120">
+		<h:panelGrid columns="2">
+		
+			<h:outputLabel value="Konu Adı:" />
+			<h:inputText value="#{createTopicBean.topicName}" />
+			
+			<h:outputLabel value="Konu Türü:" />
+			<h:inputText value="#{createTopicBean.topicType}" />
+		
+		</h:panelGrid>
+		<p:commandButton  value="Oluştur" action="#{createTopicBean.saveDB()}">
+			<f:setPropertyActionListener target="#{createTopicBean.parametre}" value="#{membersBean.memberID}" />
+		</p:commandButton>
+		
+	</p:dialog>
+	
+	
+	</h:form>
+</h:body>
+</html>
