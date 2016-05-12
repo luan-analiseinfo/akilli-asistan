@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<h:outputStylesheet name="css/bootstrap.css" />
+
+
+
+	<h:outputScript library="js" name="jquery-2.2.3.min.js" />
+	<h:outputScript library="js" name="bootstrap.js" />
+
+
+</h:head>
+<h:body>
+
+	<div class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+
+					<a class="navbar-brand" href="#">Akıllı kişisel Asistan</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<h:form class="navbar-form navbar-left" role="search">
+						<ul class="nav navbar-nav">
+
+							<!--         <li><a href="#">Tüm Öğrenciler</a></li> -->
+							<li><h:commandLink action="#{studentList.DBget2()}"
+									value="Tüm Öğrenciler" /></li>
+
+						</ul>
+
+						<div class="form-group">
+							<h:inputText value="#{studentList.source}"
+								styleClass="form-control" />
+						</div>
+						<h:commandButton action="#{studentList.DBget()}" value="Ara"
+							styleClass="btn btn-default" />
+
+					</h:form>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Çıkış</a></li>
+						<li></li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!---container-->
+		</div>
+		<!-- /.container-fluid -->
+	</div>
+	<!--nav-->
+</h:body>
+</html>
