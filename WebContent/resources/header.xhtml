@@ -28,10 +28,15 @@
       </ul>
       
         <div class="form-group">
-        	<h:inputText value="#{studentList.source}" styleClass="form-control"  />
-        </div>
-        	<h:commandButton action="#{studentList.DBget()}" value="Ara" styleClass="btn btn-default" /> 
+        	<p:autoComplete id="search"  value="#{topicContentBean.search}"   completeMethod="#{topicContentBean.search()}">
+        		<p:ajax event="keyup"></p:ajax>
+        	</p:autoComplete>
       
+        
+        	
+        </div>
+        	<h:commandButton action="#{topicContentBean.SearchContent()}" value="Ara" styleClass="btn btn-default" /> 
+      		
       </h:form>
       <ul class="nav navbar-nav navbar-right">
         <li><br /><h:form><h:commandLink action="#{membersBean.logout()}" value="Çıkış" /></h:form></li>
